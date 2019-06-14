@@ -1,0 +1,68 @@
+<h1>
+  Leader list
+</h1>
+
+<a href="/new_leader_form">
+  Add a new leader
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Name
+    </th>
+
+    <th>
+      Leader ability
+    </th>
+
+    <th>
+      Leader unit
+    </th>
+
+    <th>
+      Leader agenda
+    </th>
+
+
+    <th>
+    </th>
+  </tr>
+
+  <% @leaders.each do |leader| %>
+  <tr>
+    <td>
+      <%= leader.id %>
+    </td>
+
+    <td>
+      <%= leader.name %>
+    </td>
+
+    <td>
+      <%= leader.leader_ability %>
+    </td>
+
+    <td>
+      <%= leader.leader_unit %>
+    </td>
+
+    <td>
+      <%= leader.leader_agenda %>
+    </td>
+
+
+    <td>
+      <a href="/leaders/<%= leader.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

@@ -1,0 +1,62 @@
+<h1>
+  Map list
+</h1>
+
+<a href="/new_map_form">
+  Add a new map
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Name
+    </th>
+
+    <th>
+      Land weight
+    </th>
+
+    <th>
+      Water weight
+    </th>
+
+
+
+    <th>
+    </th>
+  </tr>
+
+  <% @maps.each do |map| %>
+  <tr>
+    <td>
+      <%= map.id %>
+    </td>
+
+    <td>
+      <%= map.name %>
+    </td>
+
+    <td>
+      <%= map.land_weight %>
+    </td>
+
+    <td>
+      <%= map.water_weight %>
+    </td>
+
+
+
+    <td>
+      <a href="/maps/<%= map.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

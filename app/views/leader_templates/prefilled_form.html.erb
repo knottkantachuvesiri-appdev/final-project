@@ -1,0 +1,68 @@
+<h1>
+  Edit leader <%= @leader.name %>
+</h1>
+
+<hr>
+
+<%= render("leader_templates/validation_failures.html.erb") %>
+
+<form action="/update_leader_record/<%= @leader.id %>" method="post">
+<div>
+<dl> 
+  <dt>
+    <label for="name">
+      Name
+    </label>
+  </dt>
+  <dd>
+    <input type="text" id="name" name="name" value="<%= @leader.name %>">
+  </dd>
+
+  <dt>
+    <label for="description">
+      Description
+    </label>
+  </dt>
+  <dd>
+    <textarea id="description" name="description" style="width:1080px; height:150px;"><%= @leader.description %></textarea>
+  </dd>
+
+  <dt>
+    <label for="leader_ability">
+      Leader ability
+    </label>
+  </dt>
+  <dd>
+    <input type="text" id="leader_ability" name="leader_ability" value="<%= @leader.leader_ability %>">
+  </dd>
+
+  <dt>
+    <label for="leader_unit">
+      Leader unit
+    </label>
+  </dt>
+  <dd>
+    <input type="text" id="leader_unit" name="leader_unit" value="<%= @leader.leader_unit %>">
+  </dd>
+
+  <dt>
+    <label for="leader_agenda">
+      Leader agenda
+    </label>
+  </dt>
+  <dd>
+    <input type="text" id="leader_agenda" name="leader_agenda" value="<%= @leader.leader_agenda %>">
+  </dd>
+
+  <button>
+    Update leader
+  </button>
+</dl>   
+</div>    
+</form>
+
+<hr>
+
+<a href="/leaders">
+  Go back
+</a>

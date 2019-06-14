@@ -1,0 +1,81 @@
+<h1>
+  <%= @civ.name %> Civilization
+</h1>
+
+<div>
+  <div>
+    <a href="/civs">
+      Go back
+    </a>
+  </div>
+  
+  <div>
+    <a href="/new_civ_form">
+      Add a new civ
+    </a>
+  </div>
+  
+  <div>
+    <a href="/existing_civ_form/<%= @civ.id %>">
+      Edit civ
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_civ/<%= @civ.id %>">
+      Delete civ
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Name
+  </dt>
+  <dd>
+    <%= @civ.name %>
+  </dd>
+
+  <dt>
+    Unique unit
+  </dt>
+  <dd>
+    <%= @civ.unique_unit %>
+  </dd>
+
+  <dt>
+    Unique infrastructure
+  </dt>
+  <dd>
+    <%= @civ.unique_infrastructure %>
+  </dd>
+
+  <dt>
+    Description
+  </dt>
+  <dd>
+    <%= @civ.description %>
+  </dd>
+
+  <dt>
+    Civ ability
+  </dt>
+  <dd>
+    <%= @civ.civ_ability %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@civ.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@civ.updated_at) %> ago
+  </dd>
+</dl>
+

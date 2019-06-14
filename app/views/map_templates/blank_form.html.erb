@@ -1,0 +1,51 @@
+<h1>
+  Add a new map
+</h1>
+
+<hr>
+
+<%= render("map_templates/validation_failures.html.erb") %>
+
+<form action="/insert_map_record" method="post">
+<div>
+<dl>
+  <dt>
+    <label for="name">
+      Name
+    </label>
+  </dt>
+  <dd>
+    <input type="text" id="name" name="name" value="<%= @map.name %>">
+  </dd>
+
+  <dt>
+    <label for="land_weight">
+      Land weight
+    </label>
+  </dt>
+  <dd>
+    <input type="text" id="land_weight" name="land_weight" value="<%= @map.land_weight %>">
+  </dd>
+
+  <dt>
+    <label for="water_weight">
+      Water weight
+    </label>
+  </dt>
+  <dd>
+    <input type="text" id="water_weight" name="water_weight" value="<%= @map.water_weight %>">
+  </dd>
+
+  <button>
+    Create map
+  </button>
+</dl>
+</div>
+
+</form>
+
+<hr>
+
+<a href="/maps">
+  Go back
+</a>

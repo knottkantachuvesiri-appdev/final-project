@@ -1,0 +1,104 @@
+<h1>
+  Faction list
+</h1>
+
+<a href="/new_faction_form">
+  Add a new faction
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Civ
+    </th>
+
+    <th>
+      Leader
+    </th>
+
+    <th>
+      Domination score
+    </th>
+
+    <th>
+      Science score 
+    </th>
+
+
+    <th>
+      Culture score
+    </th>
+
+
+    <th>
+      Religion score
+    </th>
+
+    <th>
+      Diplomatic score
+    </th>
+
+    <th>
+      Overall score
+    </th>
+
+
+
+    <th>
+    </th>
+  </tr>
+
+  <% @factions.each do |faction| %>
+  <tr>
+    <td>
+      <%= faction.id %>
+    </td>
+
+    <td>
+      <%= faction.civ.name %>
+    </td>
+
+    <td>
+      <%= faction.leader.name %>
+    </td>
+
+    <td>
+      <%= (faction.dom_score_land.to_f+faction.dom_score_water.to_f+faction.dom_def_land.to_f+faction.dom_def_water.to_f)/4 %>
+    </td>
+
+    <td>
+      <%= (faction.sci_score_land.to_f+faction.sci_score_water.to_f+faction.sci_def_land.to_f+faction.sci_def_water.to_f)/4 %>
+    </td>
+
+    <td>
+      <%= (faction.cul_score_land.to_f+faction.cul_score_water.to_f+faction.cul_def_land.to_f+faction.cul_def_water.to_f)/4 %>
+    </td>
+
+    <td>
+      <%= (faction.rel_score_land.to_f+faction.rel_score_water.to_f+faction.rel_def_land.to_f+faction.rel_def_water.to_f)/4 %>
+    </td>
+    
+    <td>
+      <%= (faction.dip_score_land.to_f+faction.dip_score_water.to_f+faction.dip_def_land.to_f+faction.dip_def_water.to_f)/4 %>
+    </td>
+
+    <td>
+      <%= (faction.dom_score_land.to_f+faction.dom_score_water.to_f+faction.dom_def_land.to_f+faction.dom_def_water.to_f+faction.sci_score_land.to_f+faction.sci_score_water.to_f+faction.sci_def_land.to_f+faction.sci_def_water.to_f+faction.cul_score_land.to_f+faction.cul_score_water.to_f+faction.cul_def_land.to_f+faction.cul_def_water.to_f+faction.rel_score_land.to_f+faction.rel_score_water.to_f+faction.rel_def_land.to_f+faction.rel_def_water.to_f+faction.dip_score_land.to_f+faction.dip_score_water.to_f+faction.dip_def_land.to_f+faction.dip_def_water.to_f)/20 %>
+    </td>
+
+
+
+    <td>
+      <a href="/factions/<%= faction.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

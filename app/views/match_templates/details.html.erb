@@ -1,0 +1,137 @@
+<h1>
+  Match #<%= @match.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/matches">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/new_match_form">
+      Add a new match
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_match_form/<%= @match.id %>">
+      Edit match
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_match/<%= @match.id %>">
+      Delete match
+    </a>
+  </div>
+</div>
+
+<div class="row mb-3">
+<div class="col md-3">
+
+    
+
+  <dt>
+    <label>Map</label> 
+    <input type="text" name="map" value="<%=@match.map.name%>" readonly>
+  </dt>
+
+  <dt>
+    <label>Faction01</label>
+    
+    <input type="text" name="map" value="<%= @match.faction01.civ.name+ " - "+@match.faction01.leader.name %>" readonly size="30">
+  </dt>
+
+  <dt>
+    <label>Faction02</label>
+    <input type="text" name="map" value="<%= @match.faction02.civ.name+ " - "+@match.faction02.leader.name %>" readonly size="30">    
+  </dt>
+  
+  <dt>
+    
+    <label>Faction03</label>
+    <input type="text" name="map" value="<%= @match.faction03.civ.name+ " - "+@match.faction03.leader.name %>" readonly size="30">      
+  </dt>
+
+  <dt>
+    
+    <label>Faction04</label>
+    <input type="text" name="map" value="<%= @match.faction04.civ.name+ " - "+@match.faction04.leader.name %>" readonly size="30"> 
+  </dt>
+
+  <dt>
+    
+    <label>Faction05</label>
+    <input type="text" name="map" value="<%= @match.faction05.civ.name+ " - "+@match.faction05.leader.name %>" readonly size="30"> 
+  </dt>
+
+  <dt>
+    
+    <label>Faction06</label>
+    <input type="text" name="map" value="<%= @match.faction06.civ.name+ " - "+@match.faction06.leader.name %>" readonly size="30"> 
+  </dt>
+
+  <dt>
+    
+    <label>Faction07</label>
+    <input type="text" name="map" value="<%= @match.faction07.civ.name+ " - "+@match.faction07.leader.name %>" readonly size="30"> 
+  </dt>
+
+  <dt>
+    
+    <label>Owner</label>
+    <input type="text" name="map" value="<%= @match.owner.username %>" readonly> 
+  </dt>
+
+  <dt>
+    
+    <label>Created at</label>
+    <input type="text" name="map" value="<%= time_ago_in_words(@match.created_at) %> ago" readonly> 
+  </dt>
+
+  <dt>
+    
+    <label>Updated at</label>
+    <input type="text" name="map" value="<%= time_ago_in_words(@match.updated_at) %> ago" readonly> 
+  </dt>
+</div>
+
+<div class="col md-9">
+<table>
+
+  </tr>
+  <tr>
+    <th>
+      Rank
+    </th>
+
+    <th>
+      Recommended Faction
+    </th>
+
+    <th>
+      Score
+    </th>
+  </tr>
+
+  <% @ranks.each do |rank| %>
+  <tr>
+    <td>
+      <%= rank+1 %>
+    </td>
+
+    <td>
+      <%= @sorted_score_table[rank].fetch(:faction_name) %>
+    </td>
+    
+    <td>
+      <%= @sorted_score_table[rank].fetch(:faction_overall_score).round(1)  %>
+    </td>
+
+  </tr>
+  <% end %>
+</table>
+</div>
+</div>

@@ -1,0 +1,123 @@
+<h1>
+  Match list
+</h1>
+
+<a href="/new_match_form">
+  Add a new match
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Map
+    </th>
+
+    <th>
+      Faction01
+    </th>
+
+    <th>
+      Faction02
+    </th>
+
+    <th>
+      Faction03
+    </th>
+
+    <th>
+      Faction04
+    </th>
+
+    <th>
+      Faction05
+    </th>
+
+    <th>
+      Faction06
+    </th>
+
+    <th>
+      Faction07
+    </th>
+    
+    <th>
+      Owner
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @matches.each do |match| %>
+  <tr>
+    <td>
+      <%= match.id %>
+    </td>
+
+    <td>
+      <%= match.map.name %>
+    </td>
+
+    <td>
+
+      <%=match.faction01.civ.name+ " - "+match.faction01.leader.name%>
+    </td>
+
+    <td>
+      <%=match.faction02.civ.name+ " - "+match.faction02.leader.name%>
+    </td>
+
+    <td>
+      <%=match.faction03.civ.name+ " - "+match.faction03.leader.name%>
+    </td>
+
+    <td>
+      <%=match.faction04.civ.name+ " - "+match.faction04.leader.name%>
+    </td>
+
+    <td>
+      <%=match.faction05.civ.name+ " - "+match.faction05.leader.name%>
+    </td>
+
+    <td>
+      <%=match.faction06.civ.name+ " - "+match.faction06.leader.name%>
+    </td>
+
+    <td>
+      <%=match.faction07.civ.name+ " - "+match.faction07.leader.name%>
+    </td>
+
+    <td>
+      <%=match.owner.username%>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(match.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(match.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/matches/<%= match.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

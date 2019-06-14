@@ -1,0 +1,178 @@
+<h1>
+  Edit match #<%= @match.id %>
+</h1>
+
+<hr>
+
+<%= render("match_templates/validation_failures.html.erb") %>
+
+<form action="/update_match_record/<%= @match.id %>" method="post">
+  <div class="row mb-3">
+  <div class="col md-3">
+  <dt>
+    <label for="map_id">
+      Map
+    </label>
+
+    <select name="map_id" id="map_id">
+        
+        <%@maps.each do |map|%>
+        
+            <option value="<%=map.id%>" <%= "selected" if map.id == @match.map_id %>><%=map.name%></option>
+        
+        <%end%>
+    </select>
+  </dt>
+
+  <dt>
+    <label for="faction01_id">
+      Faction01
+    </label>
+
+    <select name="faction01_id" id="faction01_id">
+        
+        <%@factions.each do |faction|%>
+        
+            <option value="<%=faction.id%>" <%= "selected" if faction.id == @match.faction01_id %>><%=faction.civ.name+ " - "+faction.leader.name%></option>
+        
+        <%end%>
+    </select>
+  </dt>
+
+  <dt>
+    <label for="faction02_id">
+      Faction02
+    </label>
+    <select name="faction02_id" id="faction02_id">
+        
+        <%@factions.each do |faction|%>
+        
+            <option value="<%=faction.id%>" <%= "selected" if faction.id == @match.faction02_id %>><%=faction.civ.name+ " - "+faction.leader.name%></option>
+        
+        <%end%>
+    </select>
+  </dt>
+
+  <dt>
+    <label for="faction03_id">
+      Faction03
+    </label>
+    <select name="faction03_id" id="faction03_id">
+        
+        <%@factions.each do |faction|%>
+        
+            <option value="<%=faction.id%>" <%= "selected" if faction.id == @match.faction03_id %>><%=faction.civ.name+ " - "+faction.leader.name%></option>
+        
+        <%end%>
+    </select>
+  </dt>
+
+  <dt>
+    <label for="faction04_id">
+      Faction04
+    </label>
+    <select name="faction04_id" id="faction04_id">
+        
+        <%@factions.each do |faction|%>
+        
+            <option value="<%=faction.id%>" <%= "selected" if faction.id == @match.faction04_id %>><%=faction.civ.name+ " - "+faction.leader.name%></option>
+        
+        <%end%>
+    </select>
+  </dt>
+
+  <dt>
+    <label for="faction05_id">
+      Faction05
+    </label>
+    <select name="faction05_id" id="faction05_id">
+        
+        <%@factions.each do |faction|%>
+        
+            <option value="<%=faction.id%>" <%= "selected" if faction.id == @match.faction05_id %>><%=faction.civ.name+ " - "+faction.leader.name%></option>
+        
+        <%end%>
+    </select>
+  </dt>
+
+  <dt>
+    <label for="faction06_id">
+      Faction06
+    </label>
+    <select name="faction06_id" id="faction06_id">
+        
+        <%@factions.each do |faction|%>
+        
+            <option value="<%=faction.id%>" <%= "selected" if faction.id == @match.faction06_id %>><%=faction.civ.name+ " - "+faction.leader.name%></option>
+        
+        <%end%>
+    </select>
+  </dt>
+
+  <dt>
+    <label for="faction07_id">
+      Faction07
+    </label>
+    <select name="faction07_id" id="faction07_id">
+        
+        <%@factions.each do |faction|%>
+        
+            <option value="<%=faction.id%>" <%= "selected" if faction.id == @match.faction07_id %>><%=faction.civ.name+ " - "+faction.leader.name%></option>
+        
+        <%end%>
+    </select>
+  </dt>
+
+
+  <button>
+    Update match
+  </button>
+  </div>
+  <div class="col md-9">
+    <table>
+      <tr>
+        <th>
+          Rank
+        </th>
+    
+        <th>
+          Recommended Faction
+        </th>
+    
+        <th>
+          Score
+        </th>
+      </tr>
+    
+      <% @ranks.each do |rank| %>
+      <tr>
+        <td>
+          <%= rank+1 %>
+        </td>
+    
+        <td>
+          <%= @sorted_score_table[rank].fetch(:faction_name) %>
+        </td>
+        
+        <td>
+          <%= @sorted_score_table[rank].fetch(:faction_overall_score).round(1)  %>
+        </td>
+    
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  
+  
+  </div>
+</form>
+
+
+
+
+
+<hr>
+
+<a href="/matches">
+  Go back
+</a>

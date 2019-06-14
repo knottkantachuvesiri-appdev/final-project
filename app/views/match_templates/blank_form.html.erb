@@ -1,0 +1,146 @@
+<h1>
+  Add a new match
+</h1>
+
+<hr>
+
+<%= render("match_templates/validation_failures.html.erb") %>
+
+<form action="/insert_match_record" method="post">
+  <div>
+  <dt>
+    <label for="map_id">
+      Map
+    </label>
+
+    <select name="map_id" id="map_id">
+        
+        <%@maps.each do |map|%>
+        
+            <option value="<%=map.id%>"><%=map.name%></option>
+        
+        <%end%>
+    </select>
+
+  </dt>
+
+  <dt>
+    
+    <label for="faction01_id">
+      Faction01
+    </label>
+    <select name="faction01_id" id="faction01_id">
+        
+        <%@factions.each do |faction|%>
+        
+            <option value="<%=faction.id%>"><%=faction.civ.name+ " - "+faction.leader.name%></option>
+        
+        <%end%>
+    </select>
+    
+   
+  </dt>
+
+  <dt>
+    <label for="faction02_id">
+      Faction02
+    </label>
+
+    <select name="faction02_id" id="faction02_id">
+        
+        <%@factions.each do |faction|%>
+        
+            <option value="<%=faction.id%>"><%=faction.civ.name+ " - "+faction.leader.name%></option>
+        
+        <%end%>
+    </select>
+  </dt>
+
+  <dt>
+    <label for="faction03_id">
+      Faction03
+    </label>
+
+    <select name="faction03_id" id="faction03_id">
+        
+        <%@factions.each do |faction|%>
+        
+            <option value="<%=faction.id%>"><%=faction.civ.name+ " - "+faction.leader.name%></option>
+        
+        <%end%>
+    </select>
+  </dt>
+
+  <dt>
+    <label for="faction04_id">
+      Faction04
+    </label>
+
+    <select name="faction04_id" id="faction04_id">
+        
+        <%@factions.each do |faction|%>
+        
+            <option value="<%=faction.id%>"><%=faction.civ.name+ " - "+faction.leader.name%></option>
+        
+        <%end%>
+    </select>
+  </dt>
+
+  <dt>
+    <label for="faction05_id">
+      Faction05
+    </label>
+
+    <select name="faction05_id" id="faction05_id">
+        
+        <%@factions.each do |faction|%>
+        
+            <option value="<%=faction.id%>"><%=faction.civ.name+ " - "+faction.leader.name%></option>
+        
+        <%end%>
+    </select>
+  </dt>
+
+  <dt>
+    <label for="faction06_id">
+      Faction06
+    </label>
+
+    <select name="faction06_id" id="faction06_id">
+        
+        <%@factions.each do |faction|%>
+        
+            <option value="<%=faction.id%>"><%=faction.civ.name+ " - "+faction.leader.name%></option>
+        
+        <%end%>
+    </select>
+  </dt>
+
+  <dt>
+    <label for="faction07_id">
+      Faction07
+    </label>
+
+    <select name="faction07_id" id="faction07_id">
+        
+        <%@factions.each do |faction|%>
+        
+            <option value="<%=faction.id%>"><%=faction.civ.name+ " - "+faction.leader.name%></option>
+        
+        <%end%>
+    </select>
+  </dt>
+
+
+
+  <button>
+    Create match
+  </button>
+  </div>
+</form>
+
+<hr>
+
+<a href="/matches">
+  Go back
+</a>

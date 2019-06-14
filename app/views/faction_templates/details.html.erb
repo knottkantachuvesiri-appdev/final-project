@@ -1,0 +1,323 @@
+<h1>
+  <%= @faction.civ.name %> Civilization - <%= @faction.leader.name %>
+</h1>
+
+<div>
+  <div>
+    <a href="/factions">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/new_faction_form">
+      Add a new faction
+    </a>  
+  </div>
+
+  <div>
+    <a href="/existing_faction_form/<%= @faction.id %>">
+      Edit faction
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_faction/<%= @faction.id %>">
+      Delete faction
+    </a>
+  </div>
+</div>
+
+<dl>
+  
+  <div class="row mb-3">
+    <div class="col md-3">    
+      <dt>
+        Civ
+      </dt>
+      <dd>
+        <%= @faction.civ.name %>
+      </dd>
+    </div>      
+  </div>
+  <div class="row mb-3">
+    <div class="col md-3">    
+      <dt>
+        Leader
+      </dt>
+      <dd>
+        <%= @faction.leader.name %>
+      </dd>
+    </div>            
+  </div>  
+
+  <div class="row mb-3">
+    <div class="col md-3">    
+      <dt>
+        Civ ability
+      </dt>
+      <dd>
+        <%= @faction.civ.civ_ability %>
+      </dd>
+    </div>  
+    <div class="col md-3">    
+      <dt>
+        Unique Unit
+      </dt>
+      <dd>
+        <%= @faction.civ.unique_unit %>
+      </dd>
+    </div> 
+    <div class="col md-3">    
+      <dt>
+        Unique Infrastructure
+      </dt>
+      <dd>
+        <%= @faction.civ.unique_infrastructure %>
+      </dd>
+    </div>     
+  </div>
+  
+  <div class="row mb-3">
+    <div class="col md-3">    
+      <dt>
+        Leader ability
+      </dt>
+      <dd>
+        <%= @faction.leader.leader_ability %>
+      </dd>
+    </div>  
+    <div class="col md-3">    
+      <dt>
+        Unique Unit
+      </dt>
+      <dd>
+        <%= @faction.leader.leader_unit %>
+      </dd>
+    </div> 
+    <div class="col md-3">    
+      <dt>
+        Leader Agenda
+      </dt>
+      <dd>
+        <%= @faction.leader.leader_agenda %>
+      </dd>
+    </div>     
+  </div>  
+
+  
+  <div class="row">
+    <dt>Domination score - <%= (@faction.dom_score_land.to_f+@faction.dom_score_water.to_f+@faction.dom_def_land.to_f+@faction.dom_def_water.to_f)/4 %></dt>
+  </div>
+  
+  <div class="row mb-3">
+    <div class="col md-3">
+      <dt>
+        Land victory
+      </dt>
+      <dd>
+        <%= @faction.dom_score_land %>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Land Defense
+      </dt>
+      <dd>
+        <%= @faction.dom_def_land %>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Victory
+      </dt>
+      <dd>
+        <%= @faction.dom_score_water%>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Defense
+      </dt>
+      <dd>
+        <%= @faction.dom_def_water %>
+      </dd>    
+    </div>    
+  </div>
+  
+  
+  <div class="row">
+    <dt>Science score   - <%= (@faction.sci_score_land.to_f+@faction.sci_score_water.to_f+@faction.sci_def_land.to_f+@faction.sci_def_water.to_f)/4 %></dt>
+  </div>
+  
+  <div class="row mb-3">
+    <div class="col md-3">
+      <dt>
+        Land victory
+      </dt>
+      <dd>
+        <%= @faction.sci_score_land %>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Land Defense
+      </dt>
+      <dd>
+        <%= @faction.sci_def_land %>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Victory
+      </dt>
+      <dd>
+        <%= @faction.sci_score_water%>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Defense
+      </dt>
+      <dd>
+        <%= @faction.sci_def_water %>
+      </dd>    
+    </div>    
+  </div>  
+    
+  <div class="row">
+    <dt>Culture score - <%= (@faction.cul_score_land.to_f+@faction.cul_score_water.to_f+@faction.cul_def_land.to_f+@faction.cul_def_water.to_f)/4 %></dt>
+  </div>
+  
+  <div class="row mb-3">
+    <div class="col md-3">
+      <dt>
+        Land victory
+      </dt>
+      <dd>
+        <%= @faction.cul_score_land %>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Land Defense
+      </dt>
+      <dd>
+        <%= @faction.cul_def_land %>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Victory
+      </dt>
+      <dd>
+        <%= @faction.cul_score_water%>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Defense
+      </dt>
+      <dd>
+        <%= @faction.cul_def_water %>
+      </dd>    
+    </div>    
+  </div>  
+  
+  
+  <div class="row">
+    <dt>Religion score - <%= (@faction.rel_score_land.to_f+@faction.rel_score_water.to_f+@faction.rel_def_land.to_f+@faction.rel_def_water.to_f)/4 %></dt>
+  </div>
+  
+  <div class="row mb-3">
+    <div class="col md-3">
+      <dt>
+        Land victory
+      </dt>
+      <dd>
+        <%= @faction.rel_score_land %>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Land Defense
+      </dt>
+      <dd>
+        <%= @faction.rel_def_land %>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Victory
+      </dt>
+      <dd>
+        <%= @faction.rel_score_water%>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Defense
+      </dt>
+      <dd>
+        <%= @faction.rel_def_water %>
+      </dd>    
+    </div>    
+  </div>    
+    
+
+  <div class="row">
+    <dt>Diplomatic score - <%= (@faction.dip_score_land.to_f+@faction.dip_def_land.to_f+@faction.dip_score_water.to_f+@faction.dip_def_water.to_f)/4 %></dt>
+  </div>
+  
+  <div class="row mb-3">
+    <div class="col md-3">
+      <dt>
+        Land victory
+      </dt>
+      <dd>
+        <%= @faction.dip_score_land %>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Land Defense
+      </dt>
+      <dd>
+        <%= @faction.dip_def_land %>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Victory
+      </dt>
+      <dd>
+        <%= @faction.dip_score_water%>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Defense
+      </dt>
+      <dd>
+        <%= @faction.dip_def_water %>
+      </dd>    
+    </div>    
+  </div> 
+
+
+ 
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@faction.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@faction.updated_at) %> ago
+  </dd>
+</dl>
+

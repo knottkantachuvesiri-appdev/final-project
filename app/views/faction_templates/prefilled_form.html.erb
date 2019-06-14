@@ -1,0 +1,402 @@
+<h1>
+  Edit <%= @faction.civ.name %> Civilization - <%= @faction.leader.name %>
+</h1>
+
+<hr>
+
+<%= render("faction_templates/validation_failures.html.erb") %>
+
+<form action="/update_faction_record/<%= @faction.id %>" method="post">
+
+  <div class="row mb-3">
+    <div class="col md-3">    
+      <dt>
+        <label for="civ_id">
+          Civ
+        </label>
+      </dt>
+      <dd>
+        <select name="civ_id" id="civ_id">
+            
+            <%@civs.each do |civ|%>
+            
+                <option value="<%=civ.id%>" <%= "selected" if civ.id == @faction.civ_id %>><%=civ.name%></option>
+            
+            <%end%>
+        </select>
+      </dd>
+    </div>      
+  </div>
+  <div class="row mb-3">
+    <div class="col md-3">    
+      <dt>
+        <label for="leader_id">
+          Leader
+        </label>
+      </dt>
+      <dd>
+        <select name="leader_id" id="leader_id">
+            
+            <%@leaders.each do |leader|%>
+            
+                <option value="<%=leader.id%>" <%= "selected" if leader.id == @faction.leader_id %>><%=leader.name%></option>
+            
+            <%end%>
+        </select>  
+      </dd>
+    </div>            
+  </div>  
+  
+  <div class="row">
+    <dt>Domination score - <%= (@faction.dom_score_land.to_f+@faction.dom_score_water.to_f+@faction.dom_def_land.to_f+@faction.dom_def_water.to_f)/4 %></dt>
+  </div>
+  
+  <div class="row mb-3">
+    <div class="col md-3">
+      <dt>
+        Land victory
+      </dt>
+      <dd>
+        <select name="dom_score_land" id="dom_score_land">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.dom_score_land %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Land Defense
+      </dt>
+      <dd>
+        <select name="dom_def_land" id="dom_def_land">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.dom_def_land %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Victory
+      </dt>
+      <dd>
+        <select name="dom_score_water" id="dom_score_water">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.dom_score_water %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Defense
+      </dt>
+      <dd>
+        <select name="dom_def_water" id="dom_def_water">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.dom_def_water %>><%=score%></option>
+            
+            <%end%>
+        </select>        
+      </dd>    
+    </div>    
+  </div>
+  
+<div class="row">
+    <dt>Science score   - <%= (@faction.sci_score_land.to_f+@faction.sci_score_water.to_f+@faction.sci_def_land.to_f+@faction.sci_def_water.to_f)/4 %></dt>
+  </div>
+  
+  <div class="row mb-3">
+    <div class="col md-3">
+      <dt>
+        Land victory
+      </dt>
+      <dd>
+        <select name="sci_score_land" id="sci_score_land">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.sci_score_land %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Land Defense
+      </dt>
+      <dd>
+        <select name="sci_def_land" id="sci_def_land">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.sci_def_land %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Victory
+      </dt>
+      <dd>
+        <select name="sci_score_water" id="sci_score_water">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.sci_score_water %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Defense
+      </dt>
+      <dd>
+        <select name="sci_def_water" id="sci_def_water">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.sci_def_water %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </dd>    
+    </div>    
+  </div>    
+  
+    
+  <div class="row">
+    <dt>Culture score - <%= (@faction.cul_score_land.to_f+@faction.cul_score_water.to_f+@faction.cul_def_land.to_f+@faction.cul_def_water.to_f)/4 %></dt>
+  </div>
+  
+  <div class="row mb-3">
+    <div class="col md-3">
+      <dt>
+        Land victory
+      </dt>
+      <dd>
+        <select name="cul_score_land" id="cul_score_land">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.cul_score_land %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Land Defense
+      </dt>
+      <dd>
+
+        <select name="cul_def_land" id="cul_def_land">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.cul_def_land %>><%=score%></option>
+            
+            <%end%>
+        </select>        
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Victory
+      </dt>
+      <dd>
+        <select name="cul_score_water" id="cul_score_water">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.cul_score_water %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Defense
+      </dt>
+      <dd>
+        <select name="cul_def_water" id="cul_def_water">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.cul_def_water %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </dd>    
+    </div>    
+  </div>  
+
+  <div class="row">
+    <dt>Religion score - <%= (@faction.rel_score_land.to_f+@faction.rel_score_water.to_f+@faction.rel_def_land.to_f+@faction.rel_def_water.to_f)/4 %></dt>
+  </div>
+  
+  <div class="row mb-3">
+    <div class="col md-3">
+      <dt>
+        Land victory
+      </dt>
+      <dd>
+        <select name="rel_score_land" id="rel_score_land">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.rel_score_land %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Land Defense
+      </dt>
+      <dd>
+        <select name="rel_def_land" id="rel_def_land">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.rel_def_land %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Victory
+      </dt>
+      <dd>
+        <select name="rel_score_water" id="rel_score_water">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.rel_score_water %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Defense
+      </dt>
+      <dd>
+        <select name="rel_def_water" id="rel_def_water">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.rel_def_water %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </dd>    
+    </div>    
+  </div>    
+
+
+  <div class="row">
+    <dt>Diplomatic score - <%= (@faction.dip_score_land.to_f+@faction.dip_def_land.to_f+@faction.dip_score_water.to_f+@faction.dip_def_water.to_f)/4 %></dt>
+  </div>
+  
+  <div class="row mb-3">
+    <div class="col md-3">
+      <dt>
+        Land victory
+      </dt>
+      <dd>
+        <select name="dip_score_land" id="dip_score_land">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.dip_score_land %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Land Defense
+      </dt>
+      <dd>
+        <select name="dip_def_land" id="dip_def_land">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.dip_def_land %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Victory
+      </dt>
+      <dd>
+      <div>
+
+        <select name="dip_score_water" id="dip_score_water">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.dip_score_water %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </div>
+      </dd>      
+    </div>
+    <div class="col md-3">
+      <dt>
+        Sea Defense
+      </dt>
+      <dd>
+       <select name="dip_def_water" id="dip_def_water">
+            
+            <%@scores.each do |score|%>
+            
+                <option value="<%=score%>" <%= "selected" if score == @faction.dip_def_water %>><%=score%></option>
+            
+            <%end%>
+        </select>
+      </dd>    
+    </div>    
+  </div> 
+
+ 
+
+  <button>
+    Update faction
+  </button>
+</form>
+
+<hr>
+
+<a href="/factions">
+  Go back
+</a>

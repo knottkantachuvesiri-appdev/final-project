@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180221161615) do
+ActiveRecord::Schema.define(version: 20190613071624) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -41,6 +41,88 @@ ActiveRecord::Schema.define(version: 20180221161615) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "civs", force: :cascade do |t|
+    t.string "name"
+    t.string "unique_unit"
+    t.string "unique_infrastructure"
+    t.text "description"
+    t.string "civ_ability"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "factions", force: :cascade do |t|
+    t.integer "civ_id"
+    t.integer "leader_id"
+    t.integer "dom_score_land"
+    t.integer "dom_score_water"
+    t.integer "dom_def_land"
+    t.integer "dom_def_water"
+    t.integer "sci_score_land"
+    t.integer "sci_score_water"
+    t.integer "sci_def_land"
+    t.integer "sci_def_water"
+    t.integer "cul_score_land"
+    t.integer "cul_score_water"
+    t.integer "cul_def_land"
+    t.integer "cul_def_water"
+    t.integer "rel_score_land"
+    t.integer "rel_score_water"
+    t.integer "rel_def_land"
+    t.integer "rel_def_water"
+    t.integer "dip_score_land"
+    t.integer "dip_score_water"
+    t.integer "dip_def_land"
+    t.integer "dip_def_water"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "leaders", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "leader_ability"
+    t.string "leader_unit"
+    t.string "leader_agenda"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "maps", force: :cascade do |t|
+    t.string "name"
+    t.float "land_weight"
+    t.float "water_weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.integer "map_id"
+    t.integer "faction01_id"
+    t.integer "faction02_id"
+    t.integer "faction03_id"
+    t.integer "faction04_id"
+    t.integer "faction05_id"
+    t.integer "faction06_id"
+    t.integer "faction07_id"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

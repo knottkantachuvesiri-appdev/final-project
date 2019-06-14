@@ -1,0 +1,81 @@
+<h1>
+  <%= @leader.name %>
+</h1>
+
+<div>
+  <div>
+    <a href="/leaders">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/new_leader_form">
+      Add a new leader
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_leader_form/<%= @leader.id %>">
+      Edit leader
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_leader/<%= @leader.id %>">
+      Delete leader
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Name
+  </dt>
+  <dd>
+    <%= @leader.name %>
+  </dd>
+
+  <dt>
+    Description
+  </dt>
+  <dd>
+    <%= @leader.description %>
+  </dd>
+
+  <dt>
+    Leader ability
+  </dt>
+  <dd>
+    <%= @leader.leader_ability %>
+  </dd>
+
+  <dt>
+    Leader unit
+  </dt>
+  <dd>
+    <%= @leader.leader_unit %>
+  </dd>
+
+  <dt>
+    Leader agenda
+  </dt>
+  <dd>
+    <%= @leader.leader_agenda %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@leader.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@leader.updated_at) %> ago
+  </dd>
+</dl>
+

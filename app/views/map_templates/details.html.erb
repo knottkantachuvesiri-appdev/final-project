@@ -1,0 +1,67 @@
+<h1>
+  <%= @map.name %> Map details
+</h1>
+
+<div>
+  <div>
+    <a href="/maps">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/new_map_form">
+      Add a new map
+    </a>
+  </div>
+  
+  <div>
+    <a href="/existing_map_form/<%= @map.id %>">
+      Edit map
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_map/<%= @map.id %>">
+      Delete map
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Name
+  </dt>
+  <dd>
+    <%= @map.name %>
+  </dd>
+
+  <dt>
+    Land weight
+  </dt>
+  <dd>
+    <%= @map.land_weight %>
+  </dd>
+
+  <dt>
+    Water weight
+  </dt>
+  <dd>
+    <%= @map.water_weight %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@map.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@map.updated_at) %> ago
+  </dd>
+</dl>
+

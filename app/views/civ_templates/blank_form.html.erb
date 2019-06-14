@@ -1,0 +1,72 @@
+<h1>
+  Add a new civ
+</h1>
+
+<hr>
+
+<%= render("civ_templates/validation_failures.html.erb") %>
+
+<form action="/insert_civ_record" method="post">
+<div>
+<dl>
+  <dt>
+
+    <label for="name">
+      Name
+    </label>
+  </dt>
+  <dd>
+    <input type="text" id="name" name="name" value="<%= @civ.name %>">
+  </dd>    
+
+  
+  <dt>
+    <label for="unique_unit">
+      Unique unit
+    </label>
+  </dt>
+  <dd>
+    <input type="text" id="unique_unit" name="unique_unit" value="<%= @civ.unique_unit %>">
+  </dd>    
+
+  <dt>
+    <label for="unique_infrastructure">
+      Unique infrastructure
+    </label>
+  </dt>    
+  <dd>
+    <input type="text" id="unique_infrastructure" name="unique_infrastructure" value="<%= @civ.unique_infrastructure %>">
+  </dd>  
+
+  <dt>
+    <label for="description">
+      Description
+    </label>
+  </dt>
+  <dd>
+    <textarea id="description" name="description" style="width:900px; height:150px;"><%= @civ.description %></textarea>
+  </dd>
+
+  <dt>
+    <label for="civ_ability">
+      Civ ability
+    </label>
+  </dt>
+  <dd>
+    <input type="text" id="civ_ability" name="civ_ability" value="<%= @civ.civ_ability %>">
+  </dd>
+  <button>
+    Create civ
+  </button>
+
+</dl>  
+</div>  
+
+
+</form>
+
+<hr>
+
+<a href="/civs">
+  Go back
+</a>

@@ -1,0 +1,72 @@
+<h1>
+  Civ list
+</h1>
+
+<a href="/new_civ_form">
+  Add a new civ
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Name
+    </th>
+
+    <th>
+      Unique unit
+    </th>
+
+    <th>
+      Unique infrastructure
+    </th>
+
+
+
+    <th>
+      Civ ability
+    </th>
+
+
+    <th>
+    </th>
+  </tr>
+
+  <% @civs.each do |civ| %>
+  <tr>
+    <td>
+      <%= civ.id %>
+    </td>
+
+    <td>
+      <%= civ.name %>
+    </td>
+
+    <td>
+      <%= civ.unique_unit %>
+    </td>
+
+    <td>
+      <%= civ.unique_infrastructure %>
+    </td>
+
+
+
+    <td>
+      <%= civ.civ_ability %>
+    </td>
+
+
+    <td>
+      <a href="/civs/<%= civ.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

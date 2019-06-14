@@ -1,0 +1,7 @@
+<% if @leader.errors.any? %>
+  <% @leader.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>

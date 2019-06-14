@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Change Me!</title>
+    <title>Civ 6 match-up</title>
 
     <!-- Expand the characters we can use beyond basic ASCII 🎉 -->
     <meta charset="utf-8">
 
     <!-- Connect the latest light.css to override browser default styles. -->
     <!-- You should replace this with a real stylesheet ASAP; probably Bootstrap, commented out below. -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
+
 
     <!-- Connect Font Awesome CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+
+
 
     <!-- Embedding other CSS and JavaScript from gems and things -->
     <%= stylesheet_link_tag    "application", media: "all" %>
@@ -22,7 +25,7 @@
 
     <!-- START BOOTSTRAP -->
     <!-- Connect Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <!-- Connect Bootstrap JavaScript -->
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
@@ -30,14 +33,93 @@
     <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
 
     <!-- Make it responsive to small screens -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- END BOOTSTRAP -->
   </head>
 
   <body>
+    <nav>
+      <div class="container">  
+        <div>
+          <a href="/">
+  
+  
+            Home
+          </a>
+        </div>
+  
+        <div>
+          <a href="/factions">
+  
+  
+            Factions
+          </a>
+        </div>
+  
+        <div>
+          <a href="/civs">
+  
+  
+            Civs
+          </a>
+        </div>
+  
+        <div>
+          <a href="/leaders">
+  
+            Leaders
+          </a>
+        </div>
+        
+        <div>
+          <a href="/maps">
+  
+            Maps
+          </a>
+        </div>      
+  
+        <div>
+          <a href="/matches">
+      
+  
+            Matches
+          </a>
+        </div>
+      
+      <hr>
 
+        <% if current_user.blank? %>
+          <div>
+            <a href="/users/sign_in">
+              Sign in
+            </a>
+          </div>
+  
+          <div>
+            <a href="/users/sign_up">
+              Sign up
+            </a>
+          </div>
+        <% else %>
+          <div>
+            <a href="/users/edit">
+              Edit profile
+            </a>
+          </div>
+  
+          <div>
+            <a href="/users/sign_out" data-method="delete">
+              Sign out
+            </a>
+          </div>
+        <% end %>
+      </div>        
+    </nav>
     <!-- ↓↓↓ Your view templates all get plugged in below ↓↓↓ -->
+    
+    <div class="container">
     <%= yield %>
+    </div>
     <!-- ↑↑↑ Your view templates all get plugged in above ↑↑↑ -->
     
   </body>
